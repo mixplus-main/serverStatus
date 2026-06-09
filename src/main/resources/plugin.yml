@@ -1,0 +1,6 @@
+name: serverStatus
+version: '${version}'
+
+main: mix.plugin.serverStatus.Main
+api-version: '1.21.8'
+load: POSTWORLD
