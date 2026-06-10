@@ -3,11 +3,13 @@ package mix.plugin.serverStatus.Config;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class configManager {
+import java.util.List;
+
+public class ConfigManager {
     private final JavaPlugin plugin;
     private final FileConfiguration config;
 
-    public configManager(JavaPlugin plugin) {
+    public ConfigManager(JavaPlugin plugin) {
         this.plugin = plugin;
         this.config = plugin.getConfig();
     }
@@ -20,8 +22,13 @@ public class configManager {
         plugin.saveConfig();
     }
 
-    public Object load(String path) {
-        return config.get(path);
+    public int getInt(String path, int def) {
+        return config.getInt(path, def);
+    }
+
+
+    public FileConfiguration getConfig() {
+        return config;
     }
 
     public JavaPlugin getPlugin() {
