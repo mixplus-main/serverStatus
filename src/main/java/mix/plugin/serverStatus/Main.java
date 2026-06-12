@@ -3,6 +3,9 @@ package mix.plugin.serverStatus;
 import mix.plugin.serverStatus.Config.ConfigManager;
 import mix.plugin.serverStatus.logic.Event;
 import mix.plugin.serverStatus.logic.OnlinePlayers;
+import mix.plugin.serverStatus.logic.TPS;
+
+
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class Main extends JavaPlugin {
@@ -17,6 +20,8 @@ public final class Main extends JavaPlugin {
         config.save();
         System.out.println("Main");
 
+
+        TPS tps = new TPS(this, config);
         this.onlinePlayers = new OnlinePlayers(this, config);
         onlinePlayers.update();
 
